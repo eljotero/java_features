@@ -3,9 +3,9 @@ package com.example.switchExpressions;
 public class DayService {
 
     int getDayNumberOfLettersForWorkday(Day day) {
-        // TODO: implement here
-        // return number of letters for working days or throw exception for the other
-
-        return 0;
+        return switch(day) {
+            case MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY -> day.name().length();
+            case SATURDAY , SUNDAY -> throw new IllegalStateException("Weekend is not a working day");
+        };
     }
 }
