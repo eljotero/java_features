@@ -18,9 +18,9 @@ class Employee {
 public class EmployeeService {
 
     double getAvgEmployeeSalary(List<Employee> employees) {
-        // TODO: implement here
-        // use List::stream method
-
-        return 0.0;
+        return employees.stream()
+                .mapToDouble(Employee::getSalary)
+                .average()
+                .orElse(0.0);
     }
 }

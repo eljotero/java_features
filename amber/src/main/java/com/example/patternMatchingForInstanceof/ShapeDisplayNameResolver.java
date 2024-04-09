@@ -1,11 +1,16 @@
 package com.example.patternMatchingForInstanceof;
 
+import com.example.patternMatchingForInstanceof.withDisplayName.DisplayNamed;
+import com.example.patternMatchingForInstanceof.withNameShapes.Named;
+
 public class ShapeDisplayNameResolver {
 
     public String resolveShape(Shape shape) {
-        // TODO: implement here with pattern matching for instanceof usage
-
-
+        if (shape instanceof DisplayNamed displayNamed) {
+            return displayNamed.getDisplayName();
+        } else if (shape instanceof Named named) {
+            return "This is " + named.getName() + " name!";
+        }
         return "";
     }
 }
